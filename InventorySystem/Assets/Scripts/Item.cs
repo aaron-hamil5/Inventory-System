@@ -27,6 +27,17 @@ public class Item
      * parameters and it will create the item for us.
      * This is linking the items data to a space within the dictionary. 
      */
+
+    public Item(int id, string title, string description, Dictionary<string, int> stats)
+    {
+        this.id = id;
+        this.title = title;
+        this.title = title;
+        this.description = description;
+        this.icon = Resources.Load<Sprite>("Sprites/Items/" + title);
+        this.stats = stats;
+    }
+
     public Item(Item item)
     {
         this.id = item.id;
