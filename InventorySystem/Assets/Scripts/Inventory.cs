@@ -33,4 +33,39 @@ public class Inventory : MonoBehaviour
         Debug.Log("Added item: " + itemToAdd.title);
     }
     #endregion
+
+    #region Check if its in the inventory
+    public Item CheckForItem(int id)
+    {
+        {
+            //Using fin too look for the ID and if its there or not
+            return characterItems.Find(item => item.id == id);
+        }
+        
+    }
+    #endregion
+
+    #region Removing from inventory
+    public void RemoveItem(int id)
+    {
+        //Checks by ID if in inventory
+        Item itemToRemove = CheckForItem(id);
+        //If it doesnt come back as null
+        if (itemToRemove != null)
+        {
+            //Remove the item
+            characterItems.Remove(itemToRemove);
+            Debug.Log("Removed item: " + itemToRemove.title);
+        }
+    }
+    #endregion
+
+    #region Test
+    void Start()
+    {
+        GiveItem(1);
+        GiveItem(0);
+        RemoveItem(1);
+    }
+    #endregion
 }
